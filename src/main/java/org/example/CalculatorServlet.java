@@ -11,13 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/calculate")
-public class CalculatorServlet implements Servlet {
+public class CalculatorServlet extends GenericServlet {
     private static final Logger log = LoggerFactory.getLogger(CalculatorServlet.class);
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        log.info("init");
-    }
 
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
@@ -30,20 +25,5 @@ public class CalculatorServlet implements Servlet {
 
         PrintWriter writer = response.getWriter();
         writer.println(result);
-    }
-
-    @Override
-    public void destroy() {
-
-    }
-
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
-    public String getServletInfo() {
-        return null;
     }
 }
